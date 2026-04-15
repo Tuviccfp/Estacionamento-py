@@ -1,8 +1,11 @@
 import sqlite3
-import time
+import os
+from .models import cliente
 
 
 def connect_db():
-    time.sleep(3)  # Simulate connection delay
-    sqlite3.connect("database.sqlite")
-    return print("Conexão estabelecida!")
+    db_path = os.path.join(os.path.dirname(__file__), "database.sqlite")
+    conn = sqlite3.connect(db_path)
+    print("Conexão estabelecida!")
+    cliente.create_cliente_table(conn)
+    return conn
