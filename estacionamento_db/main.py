@@ -9,7 +9,8 @@ from database.connection import connect_db
 def mainProgram():
     while input("Digite um número: ") > "10":
         print("Iniciando o programa...")
-        connect_db()
+        conn = connect_db()
+        conn.close()
 
 
 if __name__ == '__main__':
