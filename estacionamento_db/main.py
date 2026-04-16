@@ -1,16 +1,13 @@
-from database.connection import connect_db
-# This is a sample Python script.
-
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files,
-# tool windows, actions, and settings.
-
-
+from controller.controller import controllerFunction
 def mainProgram():
-    while input("Digite um número: ") > "10":
-        print("Iniciando o programa...")
-        conn = connect_db()
-        conn.close()
+    while True:
+        print("Menu: \n 1 - Cadastrar cliente \n 2 - Listar clientes \n 3 - Buscar cliente por ID \n 4 - Atualizar cliente \n 5 - Deletar cliente \n Digite 'sair' para encerrar o programa.")
+        
+        value = input("\n\nDigite o número da opção: ")
+        if value.lower() == 'sair':
+            print("Encerrando o programa. Até mais!")
+            break
+        controllerFunction(value)
 
 
 if __name__ == '__main__':
